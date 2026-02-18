@@ -18,7 +18,7 @@ title: Gear
 ## Computers
 
 * Lenovo Thinkpad T480
-* MacBook Pro (13-inch, Mid 2012) (NAS server)
+* MacBook Pro (13-inch, Mid 2012) (homelab)
 
 ## EDC
 
