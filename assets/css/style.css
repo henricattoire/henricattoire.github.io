@@ -1,0 +1,240 @@
+/*
+ * Styling sheet.
+ *
+ * Inspiration:
+ *   * Fred Zhang's (https://fredzhang.me) sheet.
+*/
+
+:root {
+  --blue: #0870a9;
+  --red: #980002; /* blood red */
+}
+
+/* General element styling */
+
+html, body {
+  height: 100%;
+  /* margin: 0; */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  body {
+    width: 80%;
+  }
+}
+
+main {
+  margin: 5% 0;
+  flex: 1;
+}
+
+footer {
+  padding: 0.4rem 0;
+  background: white;
+  font-style: italic;
+  font-size: small;
+}
+
+footer a {
+  color: #000;
+  text-decoration-style: solid;
+}
+
+p {
+  text-align: justify;
+}
+
+.hr { /* handwriting */
+  font-family: 'Nothing You Could Do', 'Roboto', sans-serif;
+  /* font-size: 2em; */
+}
+
+.tr { /* typewriting */
+  font-family: Courier, 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+h1 {
+  color: var(--red);
+}
+
+a {
+  color: var(--blue);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 0.4em;
+}
+
+a:hover {
+  text-decoration-style: solid;
+}
+
+/* a {
+  color: var(--blue);
+  cursor: pointer;
+  text-decoration: none;
+  background-image: linear-gradient(to right, var(--blue) 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 3px 1px;
+  background-repeat: repeat-x;
+}
+
+a:hover {
+  background-image: linear-gradient(to right, var(--blue) 100%, rgba(255, 255, 255, 0) 0%);
+} */
+
+/* Id and class styling */
+
+#title {
+  margin-bottom: 0.2em;
+}
+
+.icon {
+  text-decoration: none;
+}
+
+.icon img {
+  width: 1em;
+}
+
+.essay-item {
+  margin-bottom: 1em;
+}
+
+.section-header h1 {
+  font-size: 1.7em;
+  /* border-bottom: 1px solid #c9cad6; */
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #c9cad6;
+  margin-bottom: 1em;
+}
+
+/* .section a {
+  color: #000;
+  background-image: linear-gradient(to right, #000 50%, rgba(255, 255, 255, 0) 0%);
+}
+
+.section a:hover {
+  background-image: linear-gradient(to right, #000 100%, rgba(255, 255, 255, 0) 0%);
+} */
+
+.section a {
+  color: #000;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 0.4em;
+}
+
+.section a:hover {
+  text-decoration-style: solid;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footnote {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.reversefootnote, .footnotes a {
+  color: var(--blue);
+  text-decoration-style: solid;
+}
+
+.footnotes ol {
+  padding-left: 1em;
+}
+
+hr.footnotes-separator {
+  width: 25%;
+  height: 1px;
+  margin-left: 0;
+  border: none;
+  background-color: #d0d7de;
+}
+
+/* https://fellowtuts.com/tryit/css3-price-post-tags/ */
+
+#tags-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.tag {
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+  margin-right: 10px;
+  padding-right: 22px;
+  height: 26px;
+  line-height: 26px;
+  background: var(--red);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.tag::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -13px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 13px 0 13px 13px;
+  border-color: transparent transparent transparent var(--red);
+  z-index: 1;
+}
+
+.tag::after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  right: -2px;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: -1px -1px 2px #004977;
+  z-index: 2;
+}
+
+.tag a {
+  all: unset;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}

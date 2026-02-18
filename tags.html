@@ -1,0 +1,32 @@
+---
+layout: default
+title: Tags
+---
+
+<div style="margin-bottom: 1em;" id="tags-header">
+    <div>
+        <h1 style="margin-bottom: 0;">Tags</h1>
+        <a href="#" onclick="history.back();" style="font-size: 0.8em; color: #666; text-decoration: none;">&larr; Back</a>
+    </div>
+    <div>
+        <input type="text" id="tag-filter" placeholder="Filter tags..."/>
+    </div>
+</div>
+{% for tag in site.tags %}
+<div style="margin-bottom: 1em;" class="tag-item" data-search-terms="{{ tag[0] | downcase }}">
+    <span style="margin-bottom: 1em;" id={{ tag[0] | replace: ' ', '-' }} class="tag">{{ tag[0] }}</span>
+    <ul class="section" style="list-style: none; padding: 0; margin: 0;">
+        {% for post in tag[1] %}
+        <li style="display: flex; justify-content: space-between">
+            <a href="{{ post.url | remove_first: '.html' }}">{{ post.title }}</a><span>{{ post.date | date: "%B %-d, %Y" }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  addFilter("tag-filter", "tag-item");
+});
+</script>

@@ -1,0 +1,43 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="author" content="Henri Cattoire" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Styling and Dope Fonts -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <!-- Roboto, designed by Christian Robertson -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/> 
+    <!-- Playfair Display, designed by Claus Eggers Sørensen -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet"/>
+    <!-- Nothing You Could Do, designed by Kimberly Geswein -->
+    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet"/>
+    <!-- jqMath (https://mathscribe.com/author/jqmath.html) -->
+    <link rel="stylesheet" href="/assets/jqmath/jqmath-0.4.3.css">
+    <script src="/assets/jqmath/jquery-1.4.3.min.js"></script>
+    <script src="/assets/jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="{{ "/assets/css/syntax.css" | relative_url }}">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  </head>
+  <body>
+    <main>
+      {{ content }}
+    </main>
+    <footer>
+      <a href="/">Index</a>
+      /
+      <a href="/resume.pdf">Resume (PDF)</a>
+      /
+      <a href="/gear">Gear</a>
+    </footer>
+    <script src="/assets/js/index.js"></script>
+  </body>
+</html>

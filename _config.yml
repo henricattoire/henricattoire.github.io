@@ -1,0 +1,17 @@
+author: Henri Cattoire
+email: henri.cattoire@nokia.com
+github: https://github.com/henricattoire
+gitlab: https://gitlab.com/h3c4
+
+plugins:
+  - jekyll-feed
+
+# rss title
+title: Henri Cattoire's Homepage
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

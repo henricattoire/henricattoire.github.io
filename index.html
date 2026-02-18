@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<h1 id="title">{{ site.author }}</h1>
+<a class="tr" href="mailto:{{ site.email }}">{{ site.email }}</a>
+<p>
+I am a <a class="tr" href="https://www.urbandictionary.com/author.php?author=The%20Computer%20Scientist">Computer Scientist</a> with a strong interest in security and
+<em class="hr">system</em> design. I received a Master of Cybersecurity from KU Leuven and an M.S. in Computer Science from Universiteit Gent.
+I am currently working as a Software Engineer at Nokia, helping build complex, innovative, and cutting-edge networking platforms that connect the world.
+</p>
+<div class="section-header">
+  <h1>Essays</h1>
+  <input type="text" placeholder="Search essays..." id="essay-filter">
+</div>
+<div class="section" style="display: flex; flex-direction: column;">
+  {% for post in site.posts %}
+  <div class="essay-item"  data-search-terms="{{ post.title | downcase }}" data-date="{{ post.date }}">
+    <div style="display: flex; justify-content: space-between">
+      <a href="{{ post.url | remove_first: '.html' }}">{{ post.title }}</a><span>{{ post.date | date: "%B %-d, %Y" }}</span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  addFilter("essay-filter", "essay-item");
+});
+</script>
