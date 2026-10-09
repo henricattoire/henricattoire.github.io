@@ -1,0 +1,56 @@
+---
+layout: default
+title: Bookmarks
+---
+
+<div style="margin-bottom: 1em;" id="bookmarks-header">
+  <div>
+    <h1 style="margin-bottom: 0;">Bookmarks</h1>
+    <a href="#" class="back" onclick="history.back(); return false;">&larr; Back</a>
+  </div>
+  <div>
+    <input type="text" id="bookmark-filter" placeholder="Search bookmarks..."/>
+  </div>
+</div>
+{% for bookmark in site.data.bookmarks %}
+{% capture text %}{{ bookmark.title }} {{ bookmark.author }} {{ bookmark.type }} {{ bookmark.tags | join: ' ' }} {% endcapture %}
+<div class="bookmark-item" id="{{ bookmark.title | slugify }}" data-search-terms="{{ text | downcase | escape }}">
+  <div style="display: flex; justify-content: space-between; gap: 1em;">
+    {% if bookmark.url %}
+    <a href="{{ bookmark.url }}" target="_blank" class="bookmark-title">{{ bookmark.title }}</a>
+    {% else %}
+    <span class="bookmark-title">{{ bookmark.title }}</span>
+    {% endif %}
+    {% if bookmark.type %}
+    <span class="bookmark-type" data-type="{{ bookmark.type | escape }}" onclick="filterOn(this.dataset.type); return false;">{{ bookmark.type }}</span>
+    {% endif %}
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 1em;">
+    {% if bookmark.tags %}
+    <div class="bookmark-tags">
+      {% for tag in bookmark.tags %}
+      <a href="#" data-tag="{{ tag | escape }}" onclick="filterOn(this.dataset.tag); return false;">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if bookmark.author %}
+    <div class="bookmark-author" style="margin-left: auto; text-align: right;">{{ bookmark.author }}</div>
+    {% endif %}
+  </div>
+  {% if bookmark.note %}
+  <div class="bookmark-note">{{ bookmark.note }}</div>
+  {% endif %}
+</div>
+{% endfor %}
+
+<script>
+function filterOn(term) {
+  let input = document.getElementById("bookmark-filter");
+  input.value = term;
+  input.dispatchEvent(new Event("input"));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  addFilter("bookmark-filter", "bookmark-item");
+});
+</script>

@@ -1,0 +1,21 @@
+---
+layout: default
+title: Gear
+---
+
+<!-- TODO: add time machine (macOS) versioning to this page, on second version. -->
+
+<div class="gear">
+  <div>
+    <h1 style="margin-bottom: 0;">Gear</h1>
+    <a href="#" class="back" onclick="history.back(); return false;">&larr; Back</a>
+  </div>
+  {% for group in site.data.gear %}
+  <h2>{{ group.category }}</h2>
+  <ul>
+    {% for item in group.items %}
+    <li>{% if item.type %}{{ item.type }}: {% endif %}{{ item.name }}</li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</div>

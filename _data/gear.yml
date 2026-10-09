@@ -1,0 +1,40 @@
+# Gear (categorised)
+#
+# Each category:
+#   * category (required): name of the category
+#   * items:
+#     * name (required)
+#     * type (optional, e.g. monitor, keyboard, ...)
+
+- category: Desk
+  items:
+    - type: Monitor
+      name: AOC 22P1D
+    - type: Keyboard
+      name: 8BitDo Retro Mechanical Keyboard 85he
+    - type: Mouse
+      name: Logitech ERGO M575 (White)
+    - type: Docking Station
+      name: Lenovo Thinkpad Thunderbolt 3 Dock Gen 2
+    - type: Headphones
+      name: Philips TAH4205 (White)
+
+- category: Computers
+  items:
+    - name: Lenovo Thinkpad T480
+    - name: MacBook Pro (13-inch, Mid 2012) (homelab)
+
+- category: EDC
+  items:
+    - type: Phone
+      name: iPhone SE (A2275)
+    - type: Earbuds
+      name: EarPods (Lightning Connector)
+    - type: E-reader
+      name: Pocketbook Verse (Mist Grey)
+
+- category: Watches
+  items:
+    - name: Seiko 5M42-0H19 Kinetic (White Dial)
+    - name: Seiko 5Y32-5B00
+    - name: Casio F91W
