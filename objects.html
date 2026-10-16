@@ -1,0 +1,21 @@
+---
+layout: default
+title: Objects
+---
+
+<!-- TODO: add time machine (macOS) versioning to this page, on second version. -->
+
+<div class="objects">
+  <div>
+    <h1 style="margin-bottom: 0;">Objects</h1>
+    <a href="#" class="back" onclick="history.back(); return false;">&larr; Back</a>
+  </div>
+  {% for group in site.data.objects %}
+  <h2>{{ group.category }}</h2>
+  <ul>
+    {% for object in group.objects %}
+    <li>{% if object.type %}{{ object.type }}: {% endif %}{{ object.name }}</li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</div>

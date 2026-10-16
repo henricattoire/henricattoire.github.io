@@ -1,0 +1,56 @@
+---
+layout: default
+title: Apostils
+---
+
+<div style="margin-bottom: 1em;" id="apostils-header">
+  <div>
+    <h1 style="margin-bottom: 0;">Apostils</h1>
+    <a href="#" class="back" onclick="history.back(); return false;">&larr; Back</a>
+  </div>
+  <div>
+    <input type="text" id="apostil-filter" placeholder="Search apostils..."/>
+  </div>
+</div>
+{% for apostil in site.data.apostils %}
+{% capture text %}{{ apostil.title }} {{ apostil.author }} {{ apostil.type }} {{ apostil.tags | join: ' ' }} {% endcapture %}
+<div class="apostil-item" id="{{ apostil.title | slugify }}" data-search-terms="{{ text | downcase | escape }}">
+  <div style="display: flex; justify-content: space-between; gap: 1em;">
+    {% if apostil.url %}
+    <a href="{{ apostil.url }}" target="_blank" class="apostil-title">{{ apostil.title }}</a>
+    {% else %}
+    <span class="apostil-title">{{ apostil.title }}</span>
+    {% endif %}
+    {% if apostil.type %}
+    <span class="apostil-type" data-type="{{ apostil.type | escape }}" onclick="filterOn(this.dataset.type); return false;">{{ apostil.type }}</span>
+    {% endif %}
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 1em;">
+    {% if apostil.tags %}
+    <div class="apostil-tags">
+      {% for tag in apostil.tags %}
+      <a href="#" data-tag="{{ tag | escape }}" onclick="filterOn(this.dataset.tag); return false;">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if apostil.author %}
+    <div class="apostil-author" style="margin-left: auto; text-align: right;">{{ apostil.author }}</div>
+    {% endif %}
+  </div>
+  {% if apostil.note %}
+  <div class="apostil-note">{{ apostil.note }}</div>
+  {% endif %}
+</div>
+{% endfor %}
+
+<script>
+function filterOn(term) {
+  let input = document.getElementById("apostil-filter");
+  input.value = term;
+  input.dispatchEvent(new Event("input"));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  addFilter("apostil-filter", "apostil-item");
+});
+</script>
