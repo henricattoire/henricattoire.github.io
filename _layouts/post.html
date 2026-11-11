@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<h1 id="title">{{ page.title }}</h1>
+<p class="meta">
+  <a href="/">{{ site.author }}</a> {{ page.date |  date: "%B %-d, %Y" }}
+  {% if page.git %}
+  <a class="icon" href="{{ page.git }}" target="_blank">
+    <img src="/assets/images/git.png">
+  </a>
+  {% endif %}
+  <a class="icon" href="/feed.xml" target="_blank">
+    <img src="/assets/images/rss.png">
+  </a>
+  {% if page.tags %}
+    <span class="tags">
+    {% for tag in page.tags %}
+      <span class="tag"><a href="/tags#{{ tag | replace: ' ', '-' }}">{{ tag }}</a></span>
+    {% endfor %}
+    </span>
+  {% endif %}
+</p>
+<div class="article">
+  {{ content }}
+</div>

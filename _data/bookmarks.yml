@@ -1,0 +1,19 @@
+# Bookmark entries
+#
+# Each entry:
+#   * title   (required)
+#   * url     (optional)
+#   * author  (optional)
+#   * note    (optional, short comment)
+#   * type    (optional, e.g. article, paper, book, ...)
+#   * tags    (optional)
+#
+- title: "AI Use in Teaching, Learning, and Research Training"
+  url: https://aiandeducation.mit.edu/report/ 
+  type: article
+  tags: [ai, teaching]
+- title: "A Plea for Lean Software"
+  author: "Niklaus Wirth, ETH Zürich (1995)"
+  type: article
+  note: "This article inspired me to write an Oberon compiler in C."
+  tags: [software]

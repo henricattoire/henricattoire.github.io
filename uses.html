@@ -1,0 +1,19 @@
+---
+layout: default
+title: Uses
+---
+
+<div class="uses">
+  <div>
+    <h1 style="margin-bottom: 0;">Uses</h1>
+    <a href="#" class="back" onclick="history.back(); return false;">&larr; Back</a>
+  </div>
+  {% for group in site.data.uses %}
+  <h2>{{ group.category }}</h2>
+  <ul>
+    {% for item in group.items %}
+    <li>{% if item.type %}{{ item.type }}: {% endif %}{{ item.name }}</li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</div>
